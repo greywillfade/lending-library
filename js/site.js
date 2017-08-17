@@ -15,8 +15,6 @@ function drawToolBox(data) {
   $('#tools').html(tools)
 }
 
-$(document).on( 'click', '#showAvailable', toggleAvailable)
-
 $(document).on( 'click', '.clear', function(e) {
   clearSearch(e)
   toggleAvailable(false)
@@ -40,26 +38,6 @@ $(document).on( 'click', '.tool-box-tool', function(e) {
   }
 })
 
-/*
-    Toggle whether unavailable items are displayed or not
-
-    [state] - optionally specify the desired state, either true or false. If
-    not defined, it will just toggle.
-*/
-function toggleAvailable(state) {
-    // Since #showAvailable and #tools both start out without the class, they
-    // will remain in sync
-    let button = $('#showAvailable').toggleClass('button-pressed', state)
-    // CSS in site.css hides tools that are '.show-available .not-available'
-    $('#tools').toggleClass('show-available', state)
-
-    // Update the button text
-    if (button.hasClass('button-pressed')) {
-        button.html("Show All")
-    } else {
-        button.html("Show Available")
-    }
-}
 
 function clearSearch(e) {
   console.log('clear')
