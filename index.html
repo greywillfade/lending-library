@@ -12,47 +12,50 @@
 </head>
 
 <body>
-	<header class="container">
-		<h1>OpenActive dictionary</h1>
-		<p>This tool is intended to help people who may be unfamiliar with the world of OpenActive and the wonderful set of acronyms and terminology that comes along with it.</p>
-	</header>
-	<div id="filters" class="container">
-		<input id="toolSearch" type="search" placeholder="Search.."></input>
-		<span class="clear sml-button">Clear</span>
-	</div>
-	<div id="tools" class="container"><span class="flash animated">LOADING...</span></div>
-	<div id="info" class="container">
-			<div class="span1">
+	<div class="container">
+		<header>
+			<h1>OpenActive dictionary</h1>
+			<p>Using data to help get people active</p>
+			<p>This tool is intended to help people who may be unfamiliar with the world of OpenActive and the wonderful set of acronyms and terminology that comes along with it.</p>
+		</header>
+		<div id="filters">
+			<input id="toolSearch" type="search" placeholder="Search.."></input>
+			<span class="clear sml-button">Clear</span>
+		</div>
+		<div id="tools"><span class="flash animated">LOADING...</span></div>
+
+		<div class="flexbox-container">
+			<div class="promo--primary">
 				<h4>Contribute to the dictionary</h4>
 				<p>Is there anything that you're confused by that you want explaining? Have we missed anything and you'd like to add in a description?</p>
 				<p>This list is powered by a Google sheet. Please get in touch if you'd like the details.</p>
 			</div>
 
-			<div class="span1">
+			<div class="promo--primary">
 				<h4>Find out more about OpenActive</h4>
 				<p>For more information about OpenActive and to find out about how you can get involved please visit <a href="http://openactive.io">openactive.io</a>.</p>
 			</div>
-	</div>
-
-	<script id="tools" type="text/html">
-	{{#rows}}
-	<div id="{{rowNumber}}" class="tool-box {{#checkedout}}not-{{/checkedout}}available">
-		<span class="tool-box-tool">{{term}}</span>
-		<p>{{whatitmeans}}</p>
-		<div class="tool-box-bottom {{rowNumber}}">
-			{{#additionaldetails}}<p>{{additionaldetails}}</p>{{/additionaldetails}}
-			{{#link}}<p><a href="{{link}}">{{link}}</a></p>{{/link}}
 		</div>
+
+		<script id="tools" type="text/html">
+		{{#rows}}
+		<div id="{{rowNumber}}" class="tool-box {{#checkedout}}not-{{/checkedout}}available">
+			<span class="tool-box-tool">{{term}}</span>
+			<p>{{whatitmeans}}</p>
+			<div class="tool-box-bottom {{rowNumber}}">
+				{{#additionaldetails}}<p>{{additionaldetails}}</p>{{/additionaldetails}}
+				{{#link}}<p><a href="{{link}}">{{link}}</a></p>{{/link}}
+			</div>
+		</div>
+		{{/rows}}
+		</script>
+
+		<script type="text/javascript">
+		  document.addEventListener('DOMContentLoaded', function() {
+	      var URL = "1rstdIXeh03CXy38LwBxZZfSq1jMXfe8Q51rd1TjXCpA"
+	      Tabletop.init( { key: URL, callback: initialize, simpleSheet: true } )
+	    })
+		</script>
 	</div>
-	{{/rows}}
-	</script>
-
-	<script type="text/javascript">
-	  document.addEventListener('DOMContentLoaded', function() {
-      var URL = "1rstdIXeh03CXy38LwBxZZfSq1jMXfe8Q51rd1TjXCpA"
-      Tabletop.init( { key: URL, callback: initialize, simpleSheet: true } )
-    })
-	</script>
-
 </body>
 </html>
