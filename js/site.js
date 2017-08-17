@@ -12,19 +12,20 @@ function drawToolBox(data) {
   var tools = ich.tools({
     'rows': data
   })
-  $('#tools').html(tools)
+  $('#tools').html(tools);
 }
 
 $(document).on( 'click', '.clear', function(e) {
-  clearSearch(e)
+  clearSearch(e);
 })
 
 $(document).on('keyup search', '#toolSearch', function(e) {
-  var text = $(e.target).val().trim().toLowerCase()
+  var text = $(e.target).val().trim().toLowerCase();
   if (text === '') return clearSearch(e)
   filterTools(text)
 })
 
+/*
 $(document).on( 'click', '.tool-box-tool', function(e) {
   var rowNumber = $(this).closest("div").attr("id")
   if ($(this).closest('div').hasClass('selected-tool')) {
@@ -35,7 +36,7 @@ $(document).on( 'click', '.tool-box-tool', function(e) {
     $('.tool-box-bottom' + '.' + rowNumber).css('display', 'inherit')
     $(this).closest('div').addClass('selected-tool')
   }
-})
+})*/
 
 
 function clearSearch(e) {

@@ -3,5 +3,9 @@
 
     a {
         color: white;
+
+        &:hover {
+            color: $midcolour;
+        }
     }
 }
