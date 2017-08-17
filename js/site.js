@@ -17,7 +17,6 @@ function drawToolBox(data) {
 
 $(document).on( 'click', '.clear', function(e) {
   clearSearch(e)
-  toggleAvailable(false)
 })
 
 $(document).on('keyup search', '#toolSearch', function(e) {
@@ -46,10 +45,14 @@ function clearSearch(e) {
 }
 
 function filterTools(text) {
-  $('.tool-box-tool').each(function() {
-  var tool = $(this).html().toLowerCase()
-  if (tool.match(text)) {
-    $(this).parent().removeClass('filtered')
-} else $(this).parent().addClass('filtered')
-  })
+    console.log(text);
+    $('h3').each(function() {
+        var tool = $(this).html().toLowerCase();
+        if (tool.match(text)) {
+            $(this).parent().removeClass('filtered');
+        }
+        else {
+            $(this).parent().addClass('filtered');
+        }
+    });
 }
